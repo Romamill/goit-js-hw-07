@@ -45,6 +45,15 @@ function handleGalleryClick(event) {
 
   const sourse = event.target.dataset.source;
 const createModal = basicLightbox.create(`<img src='${sourse}' alt=''>`);
-createModal.show();
+  createModal.show();
+  
+
+  window.addEventListener('keydown', hadleKeyDown);
+
+  function hadleKeyDown(event) {
+    if (event.code === 'Escape') {
+      createModal.close();
+    }
+  }
 
 }
