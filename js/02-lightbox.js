@@ -31,29 +31,10 @@ function renderGellery() {
     galleryElements.append(...renderGalleryHTML);
 };
 renderGellery();
-
-galleryElements.addEventListener('click', handleGalleryClick);
-
-function handleGalleryClick(event) {
-  event.preventDefault();
-
-  if (event.target.nodeName !== 'IMG') {
-    return;
-  }
-    
-     const lightbox = new SimpleLightbox(".gallery a", {
-      captionsData: "alt",
-      captionPosition: "bottom",
-      captionDelay: 250,
-    });
+const lightbox = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionPosition: "bottom",
+  captionDelay: 250,
+});
   
 
-  window.addEventListener('keydown', hadleKeyDown);
-
-  function hadleKeyDown(event) {
-    if (event.code === 'Escape') {
-      createModal.close();
-    }
-  }
-
-}

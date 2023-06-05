@@ -48,11 +48,12 @@ const createModal = basicLightbox.create(`<img src='${sourse}' alt=''>`);
   createModal.show();
   
 
-  window.addEventListener('keydown', hadleKeyDown);
+  window.addEventListener('keydown', handleKeyDown);
 
-  function hadleKeyDown(event) {
+  function handleKeyDown(event) {
     if (event.code === 'Escape') {
       createModal.close();
+      window.removeEventListener('keydown', handleKeyDown);
     }
   }
 
